@@ -58,7 +58,7 @@ include_once('templates/header.php');
                                 <td><?= $tamu['Bertemu'] ?></td>
                                 <td><?= $tamu['Kepentingan'] ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-success">Ubah</button>
+                                    <a class="btn btn-success" href="edit_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">Ubah</a>
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </td>
                             </tr>
