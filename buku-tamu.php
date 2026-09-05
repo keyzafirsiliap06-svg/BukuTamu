@@ -59,7 +59,11 @@ include_once('templates/header.php');
                                 <td><?= $tamu['Kepentingan'] ?></td>
                                 <td>
                                     <a class="btn btn-success" href="edit_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">Ubah</a>
-                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                    <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"
+                                        class="btn btn-danger"
+                                        href="hapus_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">
+                                        Hapus
+                                    </a>
                                 </td>
                             </tr>
 
