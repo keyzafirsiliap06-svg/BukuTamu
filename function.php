@@ -72,3 +72,24 @@ function hapus_tamu($id)
 
     return mysqli_affected_rows($koneksi);
 }
+
+function tambah_user($data)
+{
+    global $koneksi;
+
+    $kode       = htmlspecialchars($data["Id_User"]);
+    $Username   = htmlspecialchars($data["Username"]);
+    $password   = htmlspecialchars($data["Password"]);
+    $user_role  = htmlspecialchars($data["User_Role"]);
+
+    // Enkiripsi password dengan password_hash
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO users (Id_User, Username, Password, User_Role) VALUES ('$kode', '$Username', '$password_hash', '$user_role')";
+
+    if (!mysqli_query($koneksi, $query)) {
+        die("Query gagal: " . mysqli_error($koneksi));
+    }
+
+    return mysqli_affected_rows($koneksi);
+}
