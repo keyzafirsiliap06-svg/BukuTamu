@@ -76,7 +76,7 @@ include_once('templates/header.php');
         <?php
 
         // mengambil data barang dari tabel dengan kode terbesar
-        $query = mysqli_query($koneksi, "SELECT max(id_tamu) as kodeTerbesar FROM buku_tamu");
+        $query = mysqli_query($koneksi, "SELECT max(Id_Tamu) as kodeTerbesar FROM buku_tamu");
         $data = mysqli_fetch_array($query);
         $kodeTamu = $data['kodeTerbesar'];
 
@@ -107,7 +107,7 @@ include_once('templates/header.php');
                     </div>
                     <div class="modal-body">
                         <form method="post" action="">
-                            <input type="hidden" name="id_tamu" id="id_tamu" value="<?= $kodeTamu ?>">
+                            <input type="hidden" name="Id_Tamu" id="Id_Tamu" value="<?= $kodeTamu ?>">
 
                             <div class="form-group row">
                                 <label for="nama_tamu" class="col-sm-3 col-form-label">Nama Tamu</label>

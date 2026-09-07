@@ -38,16 +38,16 @@ include_once('templates/header.php');
             <form method="post" action="">
                 <?php
 
-                // jika ada id_tamu di URL
+                // jika ada Id_Tamu di URL
                 if (isset($_GET['id'])) {
                     $Id_Tamu = $_GET['id'];
 
-                    // ambil data tamu yang sesuai dengan id_tamu
-                    $data = query("SELECT * FROM buku_tamu WHERE Id_Tamu = '$Id_Tamu'")[0];
+                    // ambil data tamu yang sesuai dengan Id_Tamu
+                    $data = query("SELECT * FROM users WHERE Id_Tamu = '$Id_Tamu'")[0];
                 }
 
                 ?>
-                <input type="hidden" name="id_tamu" id="id_tamu" value="<?= $Id_Tamu ?>">
+                <input type="hidden" name="Id_Tamu" id="Id_Tamu" value="<?= $Id_Tamu ?>">
 
                 <div class="form-group row">
                     <label for="nama_tamu" class="col-sm-3 col-form-label">Nama Tamu</label>
