@@ -130,7 +130,10 @@ function ganti_password($data)
     $kode = htmlspecialchars($data["Id_User"]);
     $password = htmlspecialchars($data["password"]);
 
-    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $password_hash = password_hash(
+        $password,
+        PASSWORD_DEFAULT
+    );
 
     $query = "UPDATE users SET
               Password = '$password_hash'
