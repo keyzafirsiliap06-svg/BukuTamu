@@ -43,7 +43,7 @@ include_once('templates/header.php');
                     $Id_Tamu = $_GET['id'];
 
                     // ambil data tamu yang sesuai dengan Id_Tamu
-                    $data = query("SELECT * FROM users WHERE Id_Tamu = '$Id_Tamu'")[0];
+                    $data = query("SELECT * FROM buku_tamu WHERE Id_Tamu = '$Id_Tamu'")[0];
                 }
 
                 ?>

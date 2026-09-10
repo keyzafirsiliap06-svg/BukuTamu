@@ -57,6 +57,15 @@
             });
         }, 4000);
     });
+    
+    // Ambil Data id userdari tombol ganti password ke model ganti password
+    $('#gantiPassword').on('show.bs.modal', function(event){
+        var button = $(event.relatedTarget)
+        var Id = button.data('id')
+        console.log(Id)
+        var modal = $(this)
+        modal.find('.modal-body #Id_user_password ').val(Id)
+    })
 </script>
 
 </body>

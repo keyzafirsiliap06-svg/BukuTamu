@@ -27,7 +27,7 @@ function tambah_tamu($data)
     $kepentingan = $data['kepentingan'];
 
     $query = "INSERT INTO buku_tamu
-              (Id_User, Tanggal, Nama_Tamu, Alamat, No_HP, Bertemu, Kepentingan)
+              (Id_Tamu, Tanggal, Nama_Tamu, Alamat, No_HP, Bertemu, Kepentingan)
               VALUES
               ('$Id_Tamu', CURDATE(), '$nama_tamu', '$alamat', '$no_hp', '$bertemu', '$kepentingan')";
 
@@ -54,7 +54,7 @@ function ubah_tamu($data)
         no_hp = '$no_hp',
         bertemu = '$bertemu',
         kepentingan = '$kepentingan'
-        WHERE Id_User = '$id'";
+        WHERE Id_Tamu = '$id'";
 
     mysqli_query($koneksi, $query);
 
@@ -116,6 +116,25 @@ function hapus_user($id)
     global $koneksi;
 
     $query = "DELETE FROM users WHERE Id_User = '$id'";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+// function ganti password user
+function ganti_password($data)
+{
+    global $koneksi;
+
+    $kode = htmlspecialchars($data["Id_User"]);
+    $password = htmlspecialchars($data["password"]);
+
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "UPDATE users SET
+              Password = '$password_hash'
+              WHERE Id_User = '$kode'";
 
     mysqli_query($koneksi, $query);
 
