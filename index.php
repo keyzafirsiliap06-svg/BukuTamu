@@ -3,14 +3,14 @@
 session_start();
 
 if (!isset($_SESSION['login'])) {
-
     header('Location: login.php');
-
     exit;
 }
 
-include_once('templates/header.php');
+include_once 'templates/header.php';
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

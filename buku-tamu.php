@@ -10,6 +10,16 @@ if (!isset($_SESSION['login'])) {
 
 require_once('function.php');
 include_once('templates/header.php');
+
+// pengecekan user role bukan operator
+// pengecekan user role bukan operator
+if ($_SESSION['role'] != 'operator') {
+    echo "<script>
+            alert('Anda tidak memiliki akses');
+            window.location.href='index.php';
+          </script>";
+    exit;
+}
 ?>
 
 
