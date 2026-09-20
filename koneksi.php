@@ -1,17 +1,7 @@
 <?php
-
 define('HOST_NAME', 'localhost');
 define('USER_NAME', 'root');
 define('PASSWORD', '');
-define('DB_NAMA', 'app_bukutamu');
+define('DB_NAME', 'app_bukutamu');
 
-$koneksi = mysqli_connect(
-    HOST_NAME,
-    USER_NAME,
-    PASSWORD,
-    DB_NAMA
-);
-
-if (!$koneksi) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
-}
+$koneksi = mysqli_connect(HOST_NAME, USER_NAME, PASSWORD, DB_NAME);

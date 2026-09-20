@@ -27,10 +27,9 @@ $dataUser = query("SELECT * FROM users WHERE Id_User = '$Id_User'");
 
 // Cek apakah user ditemukan
 if (count($dataUser) == 0) {
-    echo "<script>
-            alert('Data user tidak ditemukan!');
-            document.location.href = 'users.php';
-          </script>";
+    echo "<script> alert('Data user tidak ditemukan!')</script>";
+    echo "<script> document.location.href = 'users.php'</script>";
+
     exit;
 }
 
@@ -81,8 +80,8 @@ include_once 'templates/header.php';
 
                 <!-- ID USER -->
                 <input type="hidden"
-                    name="Id_User"
-                    value="<?= htmlspecialchars($user['Id_User']); ?>">
+                    name="id_user"
+                    value="<?= htmlspecialchars($user['id_user']); ?>">
 
                 <!-- USERNAME -->
                 <div class="form-group row">
@@ -97,8 +96,8 @@ include_once 'templates/header.php';
                         <input type="text"
                             class="form-control"
                             id="Username"
-                            name="Username"
-                            value="<?= htmlspecialchars($user['Username']); ?>"
+                            name="username"
+                            value="<?= htmlspecialchars($user['username']); ?>"
                             required>
 
                     </div>
@@ -117,16 +116,16 @@ include_once 'templates/header.php';
 
                         <select class="form-control"
                             id="User_Role"
-                            name="User_Role"
+                            name="user_role"
                             required>
 
                             <option value="admin"
-                                <?= $user['User_Role'] == 'admin' ? 'selected' : ''; ?>>
+                                <?= $user['user_role'] == 'admin' ? 'selected' : ''; ?>>
                                 Administration
                             </option>
 
                             <option value="operator"
-                                <?= $user['User_Role'] == 'operator' ? 'selected' : ''; ?>>
+                                <?= $user['user_role'] == 'operator' ? 'selected' : ''; ?>>
                                 Operator
                             </option>
 

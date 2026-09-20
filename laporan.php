@@ -18,9 +18,9 @@ if (isset($_POST['tampilkan'])) {
     $link = "export-laporan.php?cari=1&p_awal=$p_awal&p_akhir=$p_akhir";
 
     $buku_tamu = query("SELECT * FROM buku_tamu 
-    WHERE Tanggal BETWEEN '$p_awal' AND '$p_akhir'");
+    WHERE tanggal BETWEEN '$p_awal' AND '$p_akhir'");
 } else {
-    $buku_tamu = query("SELECT * FROM buku_tamu ORDER BY Tanggal DESC");
+    $buku_tamu = query("SELECT * FROM buku_tamu ORDER BY tanggal DESC");
 }
 ?>
 <!-- Begin Page Content -->
@@ -86,7 +86,9 @@ if (isset($_POST['tampilkan'])) {
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href=<?= isset($_POST['tampilkan']) ? $link : 'export-laporan.php'; ?>" target="_blank" class="btn btn-success btn-icon-split">
+            <a href="<?= isset($_POST['tampilkan']) ? $link : 'export-laporan.php'; ?>"
+                target="_blank"
+                class="btn btn-success btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-file-export"></i>
                 </span>
@@ -118,21 +120,21 @@ if (isset($_POST['tampilkan'])) {
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $tamu['Tanggal'] ?></td>
-                                <td><?= $tamu['Nama_Tamu'] ?></td>
-                                <td><?= $tamu['Alamat'] ?></td>
-                                <td><?= $tamu['No_HP'] ?></td>
-                                <td><?= $tamu['Bertemu'] ?></td>
-                                <td><?= $tamu['Kepentingan'] ?></td>
+                                <td><?= $tamu['tanggal'] ?></td>
+                                <td><?= $tamu['nama_tamu'] ?></td>
+                                <td><?= $tamu['alamat'] ?></td>
+                                <td><?= $tamu['no_hp'] ?></td>
+                                <td><?= $tamu['bertemu'] ?></td>
+                                <td><?= $tamu['kepentingan'] ?></td>
                                 <td>
                                     <a class="btn btn-success"
-                                        href="edit_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">
+                                        href="edit_tamu.php?id=<?= $tamu['id_tamu'] ?>">
                                         Ubah
                                     </a>
 
                                     <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"
                                         class="btn btn-danger"
-                                        href="hapus_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">
+                                        href="hapus_tamu.php?id=<?= $tamu['id_tamu'] ?>">
                                         Hapus
                                     </a>
                                 </td>

@@ -14,10 +14,8 @@ include_once('templates/header.php');
 // pengecekan user role bukan operator
 // pengecekan user role bukan operator
 if ($_SESSION['role'] != 'operator') {
-    echo "<script>
-            alert('Anda tidak memiliki akses');
-            window.location.href='index.php';
-          </script>";
+    echo "<script>alert('Anda tidak memiliki akses');</script>";
+    echo "<script> window.location.href='index.php'; </script>";
     exit;
 }
 ?>
@@ -71,17 +69,17 @@ if ($_SESSION['role'] != 'operator') {
 
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td><?= $tamu['Tanggal'] ?></td>
-                                <td><?= $tamu['Nama_Tamu'] ?></td>
-                                <td><?= $tamu['Alamat'] ?></td>
-                                <td><?= $tamu['No_HP'] ?></td>
-                                <td><?= $tamu['Bertemu'] ?></td>
-                                <td><?= $tamu['Kepentingan'] ?></td>
+                                <td><?= $tamu['tanggal'] ?></td>
+                                <td><?= $tamu['nama_tamu'] ?></td>
+                                <td><?= $tamu['alamat'] ?></td>
+                                <td><?= $tamu['no_hp'] ?></td>
+                                <td><?= $tamu['bertemu'] ?></td>
+                                <td><?= $tamu['kepentingan'] ?></td>
                                 <td>
-                                    <a class="btn btn-success" href="edit_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">Ubah</a>
+                                    <a class="btn btn-success" href="edit_tamu.php?id=<?= $tamu['id_tamu'] ?>">Ubah</a>
                                     <a onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"
                                         class="btn btn-danger"
-                                        href="hapus_tamu.php?id=<?= $tamu['Id_Tamu'] ?>">
+                                        href="hapus_tamu.php?id=<?= $tamu['id_tamu'] ?>">
                                         Hapus
                                     </a>
                                 </td>
@@ -127,7 +125,7 @@ if ($_SESSION['role'] != 'operator') {
                     </div>
                     <div class="modal-body">
                         <form method="post" action="" enctype="multipart/form-data">
-                            <input type="hidden" name="Id_Tamu" id="Id_Tamu" value="<?= $kodeTamu ?>">
+                            <input type="hidden" name="id_tamu" id="id_tamu" value="<?= $kodeTamu ?>">
 
                             <div class="form-group row">
                                 <label for="nama_tamu" class="col-sm-3 col-form-label">Nama Tamu</label>
